@@ -1,0 +1,20 @@
+{
+  "name": "hyperterm-mac-controls",
+  "version": "1.0.0",
+  "description": "Hyperterm mac-like window controls on linux or windows",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krve/hyperterm-mac-controls.git"
+  },
+  "keywords": [
+    "hyper",
+    "hyperterm",
+    "hyper-plugin",
+    "hyperterm-plugin",
+    "plugin",
+    "mac"
+  ],
+  "author": "Kristoffer <kristoffer@krve.io>",
+  "license": "MIT"
+}
