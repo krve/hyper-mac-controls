@@ -1,6 +1,6 @@
 {
   "name": "hyperterm-mac-controls",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hyperterm mac-like window controls on linux or windows",
   "main": "index.js",
   "repository": {
