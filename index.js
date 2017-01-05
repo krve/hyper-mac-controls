@@ -1,6 +1,12 @@
 'use strict'
 
+const isWin = /^win/.test(process.platform);
+const dirname = __dirname;
 const remote = require('electron').remote;
+
+if (isWin == true) {
+    dirname = dirname.replace(/\\/, '/');
+}
 
 exports.decorateConfig = (config) => {
     return Object.assign({}, config, {
@@ -43,27 +49,27 @@ exports.decorateConfig = (config) => {
             }
             .mac_header .mac_close {
                 background-color: #f25056;
-                background-image: url('${__dirname}/icons/close.svg');
+                background-image: url('${dirname}/icons/close.svg');
                 left: 5px;
             }
             .mac_header .mac_close:hover {
-                background-image: url('${__dirname}/icons/close_hover.svg');
+                background-image: url('${dirname}/icons/close_hover.svg');
             }
             .mac_header .mac_minimize {
                 background-color: #fac536;
-                background-image: url('${__dirname}/icons/minimize.svg');
+                background-image: url('${dirname}/icons/minimize.svg');
                 left: 23px;
             }
             .mac_header .mac_minimize:hover {
-                background-image: url('${__dirname}/icons/minimize_hover.svg');
+                background-image: url('${dirname}/icons/minimize_hover.svg');
             }
             .mac_header .mac_maximize {
                 background-color: #39ea49;
-                background-image: url('${__dirname}/icons/maximize.svg');
+                background-image: url('${dirname}/icons/maximize.svg');
                 left: 40px;
             }
             .mac_header .mac_maximize:hover {
-                background-image: url('${__dirname}/icons/maximize_hover.svg');
+                background-image: url('${dirname}/icons/maximize_hover.svg');
             }
         `
     })
