@@ -1,6 +1,6 @@
 # Hyper-mac-controls! [![npm-version][npm-badge]][npm-link]
 
-A plugin that makes the close, minimize and maximize buttons look like the macOS window controls. The plugin is currently only testing on linux, but this should work in Windows aswell.
+A plugin that makes the close, minimize and maximize buttons look like the macOS window controls. The plugin is currently only tested on linux, but this should work in Windows as well.
 
 ![hyperterm-mac-controls][screenshot]
 
