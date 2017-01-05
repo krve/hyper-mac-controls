@@ -1,11 +1,12 @@
 'use strict'
 
-const isWin = /^win/.test(process.platform);
-const dirname = __dirname;
+const isWin = process.platform === 'win32';
+let dirname = __dirname;
 const remote = require('electron').remote;
 
 if (isWin == true) {
-    dirname = dirname.replace(/\\/, '/');
+    dirname = dirname.replace(/\\/g, '/');
+    console.log(dirname);
 }
 
 exports.decorateConfig = (config) => {
