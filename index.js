@@ -1,21 +1,26 @@
 'use strict'
 
 const isWin = process.platform === 'win32';
-let dirname = __dirname;
 const remote = require('electron').remote;
+let dirname = __dirname;
+let defaultConfig = {
+    align: 'left',
+};
 
 if (isWin == true) {
     dirname = dirname.replace(/\\/g, '/');
-    console.log(dirname);
 }
 
 exports.decorateConfig = (config) => {
+    // Extend the default config
+    defaultConfig = Object.assign({}, defaultConfig, config.hyperMacControls || {});
+
     return Object.assign({}, config, {
         css: `
             ${config.css || ''}
             .header_windowHeader {
                 height: 22px;
-                left: 57px;
+                left: ${defaultConfig.align == 'left' ? '57px' : '0'};
                 width: calc(100% - 56px);
             }
             .header_windowControls {
@@ -27,7 +32,7 @@ exports.decorateConfig = (config) => {
             .mac_header {
                 position: fixed;
                 top: 0;
-                left: 0;
+                ${defaultConfig.align == 'left' ? 'left: 0;' : 'right: 0;'}
                 height: 22px;
                 width: 56px;
             }
