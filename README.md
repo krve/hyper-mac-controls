@@ -9,6 +9,15 @@ A plugin that makes the close, minimize and maximize buttons look like the macOS
 1. Install using `hpm install hyper-mac-controls`
 2. Reload or restart hyperterm.
 
+### Config
+
+You can change the alignment of the controls by adding the following segment to your config.
+```
+hyperMacControls: {
+  align: 'right'
+}
+```
+
 ### License
 
 MIT © [krve][author]
