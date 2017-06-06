@@ -14,9 +14,8 @@ exports.decorateConfig = (config) => {
         css: `
             ${config.css || ''}
             .header_windowHeader {
-                height: 22px;
-                left: 57px;
-                width: calc(100% - 56px);
+                left: 42px;
+                width: calc(100% - 118px);
             }
             .header_windowControls {
                 display: none;
@@ -26,8 +25,8 @@ exports.decorateConfig = (config) => {
             }
             .mac_header {
                 position: fixed;
-                top: 0;
-                left: 0;
+                top: 7px;
+                right: 11px;
                 height: 22px;
                 width: 56px;
             }
@@ -46,6 +45,7 @@ exports.decorateConfig = (config) => {
                 border-radius: 50%;
                 position: absolute;
                 top: 5px;
+                cursor: pointer;
                 background-position: -6px;
             }
             .mac_header .mac_close {
