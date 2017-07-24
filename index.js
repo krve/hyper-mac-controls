@@ -7,6 +7,12 @@ let defaultConfig = {
     align: 'left',
 };
 
+let isFlipped = false;
+
+if(defaultConfig.align == 'left-flipped' || defaultConfig.align == 'right-flipped') {
+    isFlipped = true;
+}
+
 if (isWin == true) {
     dirname = dirname.replace(/\\/g, '/');
 }
@@ -20,7 +26,7 @@ exports.decorateConfig = (config) => {
             ${config.css || ''}
             .header_windowHeader {
                 height: 22px;
-                left: ${defaultConfig.align == 'left' ? '57px' : '0'};
+                left: ${defaultConfig.align == 'left' || defaultConfig.align == 'left-flipped' ? '57px' : '0'};
                 width: calc(100% - 56px);
             }
             .header_windowControls {
@@ -56,7 +62,7 @@ exports.decorateConfig = (config) => {
             .mac_header .mac_close {
                 background-color: #f25056;
                 background-image: url('${dirname}/icons/close.svg');
-                left: 5px;
+                left: ${isFlipped ? '5px' : '40px'};
             }
             .mac_header .mac_close:hover {
                 background-image: url('${dirname}/icons/close_hover.svg');
@@ -72,7 +78,7 @@ exports.decorateConfig = (config) => {
             .mac_header .mac_maximize {
                 background-color: #39ea49;
                 background-image: url('${dirname}/icons/maximize.svg');
-                left: 40px;
+                left: ${isFlipped ? '40px' : '5px'};
             }
             .mac_header .mac_maximize:hover {
                 background-image: url('${dirname}/icons/maximize_hover.svg');
