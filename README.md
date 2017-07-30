@@ -17,6 +17,18 @@ hyperMacControls: {
   align: 'right'
 }
 ```
+You can also flip controls by adding one of these two segments to your config.
+```
+hyperMacControls: {
+	align: 'right-flipped',
+}
+```
+or
+```
+hyperMacControls: {
+	align: 'left-flipped',
+}
+```
 
 ### License
 
