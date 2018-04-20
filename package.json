@@ -1,6 +1,6 @@
 {
   "name": "hyper-mac-controls",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Hyper mac-like window controls on linux or windows",
   "main": "index.js",
   "repository": {

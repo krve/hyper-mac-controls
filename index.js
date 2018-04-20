@@ -3,29 +3,20 @@
 const isWin = process.platform === 'win32';
 const remote = require('electron').remote;
 let dirname = __dirname;
-let defaultConfig = {
-    align: 'left',
-};
 
 if (isWin == true) {
     dirname = dirname.replace(/\\/g, '/');
 }
 
 exports.decorateConfig = (config) => {
-    // Extend the default config
-    defaultConfig = Object.assign({}, defaultConfig, config.hyperMacControls || {});
+    const windowControls = config.showWindowControls;
 
-    let isFlipped = false;
-
-    if(defaultConfig.align == 'left-flipped' || defaultConfig.align == 'right-flipped') {
-        isFlipped = true;
+    if (windowControls === false) {
+        return config;
     }
 
-    let isLeft = false;
-
-    if(defaultConfig.align == 'left-flipped' || defaultConfig.align == 'left') {
-        isLeft = true;
-    }
+    let isLeft = windowControls === 'left';
+    let isFlipped = true;
 
     return Object.assign({}, config, {
         css: `
@@ -97,21 +88,26 @@ exports.decorateHeader = (Hyper, { React }) => {
     return class extends React.Component {
         constructor(props) {
             super(props);
+
             this.state = {
                 window: null,
                 maximized: false
             }
+
             this.closeApp = this.closeApp.bind(this);
             this.minimizeApp = this.minimizeApp.bind(this);
             this.maximizeApp = this.maximizeApp.bind(this);
         }
+
         closeApp() {
             this.state.window.close();
         }
+
         minimizeApp() {
             this.state.window.minimize();
             this.state.maximized = false;
         }
+
         maximizeApp() {
             if (this.state.maximized == true) {
                 this.state.window.unmaximize();
@@ -121,6 +117,7 @@ exports.decorateHeader = (Hyper, { React }) => {
                 this.state.maximized = true;
             }
         }
+
         render() {
             return (
                 React.createElement(Hyper, Object.assign({}, this.props, {
@@ -134,6 +131,7 @@ exports.decorateHeader = (Hyper, { React }) => {
                 }))
             )
         }
+
         componentDidMount() {
             this.state.window = remote.getCurrentWindow();
         }
