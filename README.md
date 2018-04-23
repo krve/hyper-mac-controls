@@ -14,7 +14,7 @@ Install using `hyper i hyper-mac-controls`
 2. Update your list of plugins to include hyper-mac-controls, like so:
 ```javascript
 plugins: [
-	'hyper-hyper-mac-controls'
+	'hyper-mac-controls'
 ],
 ```
 3. Reload (`Ctrl+Shift+R`) or restart Hyper
