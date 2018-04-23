@@ -11,7 +11,7 @@ Install using `hyper i hyper-mac-controls`
 
 **Manually**:  
 1. Open Hyper preferences (or edit them manually at `~/.hyper.js`  with your editor).
-2. Update your list of plugins to include hyper-arc-dark-controls, like so:
+2. Update your list of plugins to include hyper-mac-controls, like so:
 ```javascript
 plugins: [
 	'hyper-hyper-mac-controls'
