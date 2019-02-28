@@ -21,7 +21,16 @@ plugins: [
 
 ### Config
 
-It makes use of `showWindowControls` to determine where to place the controls.
+It makes use of `showWindowControls` to determine where to place the controls. To move the controls to the left side, change your config to the following:
+```javascript
+module.exports = {
+  config: {
+    ...
+    showWindowControls: 'left',
+    ...
+  }
+}
+```
 
 **Flip controls**  
 Default value is `true`
