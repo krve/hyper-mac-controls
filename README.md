@@ -21,9 +21,27 @@ plugins: [
 
 ### Config
 
-Currently there are no config options. It makes use of `showWindowControls` to determine where to place the controls.
+It makes use of `showWindowControls` to determine where to place the controls.
+
+**Flip controls**
+Default vallue is `true`
+
+```javascript
+module.exports = {
+  config: {
+    ...
+      hyperMacControls: {
+        flipped: true,
+      }
+    ...
+  }
+}
+```
 
 ### Changelog
+**1.1.2**
+- Add flipped versions again (see config option above)
+
 **1.1.0**
 - Update to work with Hyper 2.0
 - Remove flipped versions (they are on my todo)

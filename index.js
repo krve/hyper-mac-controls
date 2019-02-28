@@ -9,6 +9,10 @@ if (isWin == true) {
 }
 
 exports.decorateConfig = (config) => {
+    const pluginConfig = Object.assign({
+        flipped: true,
+    }, config.hyperMacControls);
+
     const windowControls = config.showWindowControls;
 
     if (windowControls === false) {
@@ -16,7 +20,6 @@ exports.decorateConfig = (config) => {
     }
 
     let isLeft = windowControls === 'left';
-    let isFlipped = true;
 
     return Object.assign({}, config, {
         css: `
@@ -59,7 +62,7 @@ exports.decorateConfig = (config) => {
             .mac_header .mac_close {
                 background-color: #f25056;
                 background-image: url('${dirname}/icons/close.svg');
-                left: ${isFlipped ? '5px' : '40px'};
+                left: ${pluginConfig.flipped ? '5px' : '40px'};
             }
             .mac_header .mac_close:hover {
                 background-image: url('${dirname}/icons/close_hover.svg');
@@ -75,7 +78,7 @@ exports.decorateConfig = (config) => {
             .mac_header .mac_maximize {
                 background-color: #39ea49;
                 background-image: url('${dirname}/icons/maximize.svg');
-                left: ${isFlipped ? '40px' : '5px'};
+                left: ${pluginConfig.flipped ? '40px' : '5px'};
             }
             .mac_header .mac_maximize:hover {
                 background-image: url('${dirname}/icons/maximize_hover.svg');
