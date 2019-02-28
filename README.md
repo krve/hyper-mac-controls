@@ -23,8 +23,8 @@ plugins: [
 
 It makes use of `showWindowControls` to determine where to place the controls.
 
-**Flip controls**
-Default vallue is `true`
+**Flip controls**  
+Default value is `true`
 
 ```javascript
 module.exports = {
