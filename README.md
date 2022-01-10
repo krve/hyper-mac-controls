@@ -48,6 +48,9 @@ module.exports = {
 ```
 
 ### Changelog
+**1.2.0**
+- Fixed issue with latest version of HyperJS
+
 **1.1.2**
 - Add flipped versions again (see config option above)
 

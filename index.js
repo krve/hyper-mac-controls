@@ -1,7 +1,6 @@
 'use strict'
 
 const isWin = process.platform === 'win32';
-const remote = require('electron').remote;
 let dirname = __dirname;
 
 if (isWin == true) {
@@ -93,30 +92,19 @@ exports.decorateHeader = (Hyper, { React }) => {
             super(props);
 
             this.state = {
-                window: null,
                 maximized: false
             }
 
-            this.closeApp = this.closeApp.bind(this);
-            this.minimizeApp = this.minimizeApp.bind(this);
+            this.props = props;
             this.maximizeApp = this.maximizeApp.bind(this);
-        }
-
-        closeApp() {
-            this.state.window.close();
-        }
-
-        minimizeApp() {
-            this.state.window.minimize();
-            this.state.maximized = false;
         }
 
         maximizeApp() {
             if (this.state.maximized == true) {
-                this.state.window.unmaximize();
+                this.props.unmaximize()
                 this.state.maximized = false;
             } else {
-                this.state.window.maximize();
+                this.props.maximize()
                 this.state.maximized = true;
             }
         }
@@ -126,17 +114,13 @@ exports.decorateHeader = (Hyper, { React }) => {
                 React.createElement(Hyper, Object.assign({}, this.props, {
                     customChildren: React.createElement('div', { className: 'mac_header' },
                         React.createElement('div', { className: 'mac_actions' },
-                            React.createElement('span', { className: 'mac_close', onClick: this.closeApp }),
-                            React.createElement('span', { className: 'mac_minimize', onClick: this.minimizeApp }),
+                            React.createElement('span', { className: 'mac_close', onClick: this.props.close }),
+                            React.createElement('span', { className: 'mac_minimize', onClick: this.props.minimize }),
                             React.createElement('span', { className: 'mac_maximize', onClick: this.maximizeApp })
                         )
-                    )
+                    ),
                 }))
             )
-        }
-
-        componentDidMount() {
-            this.state.window = remote.getCurrentWindow();
         }
     };
 };
